@@ -1,0 +1,257 @@
+/* =============================================
+   GLOBAL STYLES — Baby Pink & Black Cute Theme
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%; min-height: 100%; overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+  background-color: #030102; 
+  color: #f1f5f9;
+}
+
+/* =============================================
+   PAGE & BACKGROUND (Cute Pink Glow)
+   ============================================= */
+.gift-page {
+  position: relative; width: 100%; height: 100vh; height: 100dvh; min-height: 100vh; overflow: hidden;
+  background-image: radial-gradient(circle at 50% 35%, rgba(244, 114, 182, 0.15) 0%, rgba(3, 1, 2, 0.98) 75%);
+}
+
+.gift-page::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px; pointer-events: none; z-index: 0;
+}
+
+/* =============================================
+   DECORATIONS
+   ============================================= */
+.corners-overlay { position: absolute; inset: 20px; pointer-events: none; z-index: 50; }
+.corner { position: absolute; width: 25px; height: 25px; border: 1px solid rgba(244, 114, 182, 0.3); }
+.corner.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+.corner.tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+.corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+.corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.side-text {
+  position: absolute; top: 50%; transform: translateY(-50%) rotate(-90deg);
+  color: rgba(244, 114, 182, 0.4); font-size: 0.55rem; letter-spacing: 0.3em;
+  pointer-events: none; z-index: 50; text-transform: uppercase;
+}
+.side-text.left { left: -60px; }
+.side-text.right { right: -60px; transform: translateY(-50%) rotate(90deg); }
+
+/* =============================================
+   SCREEN SYSTEM
+   ============================================= */
+.screen {
+  position: absolute; inset: 0; width: 100%; height: 100%; min-height: 100%;
+  overflow: hidden; z-index: 10; display: none; align-items: center; justify-content: center;
+}
+.screen.visible { z-index: 20; display: flex; }
+
+.intro-bunting {
+  position: absolute; top: 0; left: 0; z-index: 0;
+  opacity: 0.7; pointer-events: none;
+}
+.content-wrapper {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; 
+  width: 100%; max-width: 600px; margin: auto; 
+  height: 100%; min-height: 0; padding: 40px 15px 100px; text-align: center;
+}
+.invitation-screen-content { gap: 12px; padding: 16px 15px; }
+.invitation-screen-content .invitation-card { flex: 0 1 auto; }
+.invitation-screen-content .invitation-button { flex: 0 0 auto; margin: 0; }
+.intro-content { padding-top: 120px; }
+
+.screen-navigation {
+  position: fixed; right: 0; bottom: max(18px, env(safe-area-inset-bottom)); left: 0;
+  z-index: 80; display: flex; justify-content: center; gap: 0.75rem;
+  padding: 0 16px; pointer-events: none;
+}
+.screen-navigation-raised { bottom: calc(max(18px, env(safe-area-inset-bottom)) + 60px); }
+.screen-navigation button { pointer-events: auto; }
+
+/* =============================================
+   TYPOGRAPHY & ELEMENTS
+   ============================================= */
+.subtitle {
+  color: #f472b6; font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 0.2em; margin-bottom: 0.8rem; font-weight: bold;
+}
+.gift-title {
+  font-family: 'Georgia', serif; font-size: clamp(2.2rem, 6vw, 3.5rem);
+  color: white; line-height: 1.2; margin-bottom: 1rem;
+}
+.gift-title span { color: #f472b6; font-style: italic; }
+.crown-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+.dots { color: #831843; font-size: 1.2rem; letter-spacing: 0.5em; margin-bottom: 1rem; }
+.description {
+  color: #94a3b8; font-style: italic; max-width: 450px;
+  line-height: 1.5; margin-bottom: 1.5rem; font-size: 0.95rem;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+  border: none; padding: 0.8rem 2.5rem; border-radius: 50px; 
+  font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(244, 114, 182, 0.3);
+}
+.btn-primary { background: linear-gradient(135deg, #f472b6, #db2777); color: white; }
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 5px 25px rgba(244, 114, 182, 0.5); }
+
+.btn-secondary { background: linear-gradient(135deg, #180d12, #080305); color: white; margin-bottom: 1.5rem; border: 1px solid #50152d; }
+.btn-secondary:hover { transform: scale(1.05); border-color: #f472b6; }
+
+.secret-link { color: #a1a1aa; font-size: 0.9rem; cursor: pointer; transition: color 0.3s; background: none; border: none; margin-top: 10px; }
+.secret-link:hover { color: white; }
+
+/* =============================================
+   SVG CONTAINERS
+   ============================================= */
+.svg-container { width: 100%; max-width: 200px; aspect-ratio: 1/1; margin: 0 auto 1.5rem; position: relative; }
+.svg-container.envelope { 
+  max-width: 360px; width: 90vw; aspect-ratio: 16/10; 
+  cursor: pointer; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
+  margin-top: 2rem; margin-bottom: 2rem;
+}
+.envelope-trigger {
+  padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer;
+}
+.envelope-trigger:focus-visible { outline: 2px solid #f472b6; outline-offset: 8px; border-radius: 12px; }
+.envelope-trigger .subtitle { margin-bottom: 0; }
+
+.cake-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.2) 0%, transparent 75%);
+  z-index: -1; pointer-events: none;
+}
+
+/* =============================================
+   LETTER CARD
+   ============================================= */
+.letter-card {
+  background: #0d0407; border: 1px solid #451325; border-top: 2px solid #f472b6;
+  border-radius: 16px; padding: 2rem; width: 100%; max-width: 550px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); display: flex; flex-direction: column; 
+}
+.top-accent-sq { width: 14px; height: 14px; background: #fbcfe8; margin: 0 auto 1.5rem; border-radius: 2px; }
+.letter-title { color: #f472b6; font-family: 'Georgia', serif; font-style: italic; font-size: 2rem; margin-bottom: 1.2rem; text-align: center; }
+.letter-body { color: #f4f4f5; line-height: 1.9; font-size: 1.05rem; white-space: pre-wrap; text-align: left; margin-bottom: 1.5rem; }
+.letter-divider { border-top: 1px solid #451325; margin: 1.5rem 0; position: relative; display: flex; justify-content: center; }
+.letter-divider span { background: #0d0407; color: #f472b6; position: absolute; top: -10px; padding: 0 10px; font-size: 0.9rem; }
+.signature { text-align: center; }
+.signature p:first-child { color: #a1a1aa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; }
+.signature p:last-child { color: #f472b6; font-family: 'Georgia', serif; font-style: italic; font-size: 2.2rem; margin-top: 0.3rem; margin-bottom: 1rem; }
+
+.letter-scroll-area {
+  max-height: 35vh; overflow-y: auto; overscroll-behavior: contain;
+  padding-right: 10px; margin-bottom: 1rem; text-align: left;
+  -webkit-overflow-scrolling: touch;
+}
+.letter-scroll-area::-webkit-scrollbar { width: 4px; }
+.letter-scroll-area::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 4px; }
+
+/* =============================================
+   FINAL BIRTHDAY INVITATION
+   ============================================= */
+.invitation-card {
+  position: relative; width: 100%; max-width: 520px; padding: 4.5rem 1.5rem 1.25rem;
+  overflow: hidden; background: linear-gradient(160deg, #180810, #080305);
+  border: 1px solid #7c294d; border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(244, 114, 182, 0.14), inset 0 0 40px rgba(244, 114, 182, 0.04);
+}
+.invitation-card::before {
+  content: ''; position: absolute; inset: 12px; border: 1px dashed rgba(244, 114, 182, 0.45);
+  border-radius: 20px; pointer-events: none;
+}
+.invitation-bunting {
+  position: absolute; top: 0.4rem; left: 8%; width: 84%; height: 76px;
+  overflow: visible; pointer-events: none;
+}
+.invitation-card .subtitle { margin-bottom: 1.5rem; }
+.invitation-decoration { color: #f9a8d4; font-size: 1.6rem; margin-bottom: 1rem; }
+.invitation-card .gift-title { margin-bottom: 0.5rem; }
+.invitation-intro { color: #fbcfe8; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.invitation-heading {
+  margin-bottom: 0.65rem; color: #fff; font-family: Georgia, serif;
+  font-size: clamp(1.45rem, 5vw, 2.25rem); line-height: 1.15;
+}
+.invitation-image {
+  position: relative; width: 100%; max-width: 450px; height: clamp(160px, 36dvh, 330px);
+  margin: 40px auto 0; overflow: hidden;
+}
+.invitation-birthday {
+  margin: 1.5rem 0; color: #f472b6; font-family: Georgia, serif;
+  font-size: clamp(2.4rem, 9vw, 3.5rem); line-height: 1.05; text-transform: uppercase;
+}
+.invitation-details { display: grid; gap: 0.45rem; color: #f1f5f9; font-size: 1rem; }
+.invitation-details p { display: flex; align-items: center; justify-content: center; gap: 0.55rem; }
+.invitation-detail-icon { width: 1.35rem; height: 1.35rem; flex: 0 0 auto; color: #f472b6; }
+.invitation-footer { margin-top: 0.75rem; color: #f9a8d4; font-family: Georgia, serif; font-style: italic; }
+.invitation-button { margin-top: 1rem; }
+
+
+/* =============================================
+   MOMENTS GRID
+   ============================================= */
+.moments-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  width: 100%; max-width: 360px; margin: 1rem auto 2rem auto;
+}
+.polaroid-card {
+  background: #0d0407; padding: 8px 8px 24px 8px; 
+  border: 1px solid #451325; border-radius: 6px; position: relative; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7); transition: transform 0.3s ease; 
+}
+.polaroid-card:hover { transform: scale(1.03); border-color: #f472b6; }
+.polaroid-img-wrapper { position: static; width: 100%; aspect-ratio: 1/1; border-radius: 3px; overflow: hidden; }
+.polaroid-pin {
+  position: absolute; top: -5px; left: 50%; transform: translateX(-50%);
+  width: 28px; height: 8px; background: rgba(244, 114, 182, 0.3); border-radius: 2px; z-index: 5;
+}
+
+/* =============================================
+   APPLE MUSIC STYLE PLAYER (Pink Theme)
+   ============================================= */
+.player-container { position: relative; width: 100%; max-width: 330px; margin: 2rem auto; z-index: 10; }
+.vinyl-record-container { position: absolute; top: -45px; left: -25px; width: 130px; height: 130px; z-index: -1; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.9)); }
+@keyframes spinVinyl { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.vinyl-spin { animation: spinVinyl 4s linear infinite; }
+.vinyl-paused { animation-play-state: paused; }
+
+.music-player-card { background: #080204; border: 1px solid #451325; border-radius: 24px; padding: 22px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); display: flex; flex-direction: column; }
+.player-cover { width: 100%; aspect-ratio: 1/1; background: #1a050c; border-radius: 12px; margin-bottom: 20px; overflow: hidden; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+.player-info { text-align: left; margin-bottom: 20px; }
+.player-title { color: white; font-size: 1.25rem; font-weight: bold; margin-bottom: 4px; }
+.player-artist { color: #f472b6; font-size: 0.95rem; opacity: 0.9; }
+.timeline-container { display: flex; flex-direction: column; margin-bottom: 20px; }
+.ios-slider { -webkit-appearance: none; width: 100%; height: 4px; background: #451325; border-radius: 2px; outline: none; cursor: pointer; margin-bottom: 8px; }
+.ios-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; border-radius: 50%; background: #f472b6; cursor: pointer; box-shadow: 0 0 6px rgba(244, 114, 182, 0.6); }
+.time-labels { display: flex; justify-content: space-between; color: #a1a1aa; font-size: 0.75rem; font-weight: bold; }
+.player-controls { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 15px; }
+.control-btn { background: none; border: none; color: white; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: transform 0.2s; }
+.control-btn:hover { transform: scale(1.1); color: #f472b6; }
+.play-pause-circle { width: 55px; height: 55px; background: #f472b6; border-radius: 50%; color: #030102; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 20px rgba(244, 114, 182, 0.4); }
+.volume-container { display: flex; align-items: center; gap: 10px; color: #a1a1aa; }
+.volume-container svg { width: 14px; height: 14px; fill: currentColor; }
+
+/* =============================================
+   MOBILE ADJUSTMENTS
+   ============================================= */
+@media (max-width: 480px) {
+  .corners-overlay, .side-text { display: none; }
+  .content-wrapper { padding-top: 6vh; padding-bottom: 80px; }
+  .invitation-screen-content { gap: 10px; padding: 12px; }
+  .svg-container.envelope { max-width: 90vw; }
+  .invitation-card { padding: 4rem 1rem 1rem; }
+  .invitation-bunting { top: 0.2rem; height: 68px; }
+  .invitation-decoration { margin-bottom: 0.5rem; }
+  .invitation-details { font-size: 0.9rem; }
+  .invitation-detail-icon { width: 1.1rem; height: 1.1rem; }
+  .invitation-footer { margin-top: 0.5rem; }
+}
